@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseMessaging
+import RealmSwift
 
 @main
 
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIViewController.swizzleMethod() //타입메서드로 바로 호출
         
-        
+        aboutRealmMigration()
         
         FirebaseApp.configure()
         
@@ -139,6 +140,69 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
 }
 
+extension AppDelegate {
+    func aboutRealmMigration(){
+        //deleteRealmIfMigrationNeeded : 마이그레이션이 필요한 경우 기존 렘 삭제(Realm Browser 닫고 다시 열기!)
+        //let config = Realm.Configuration(schemaVersion: 0, deleteRealmIfMigrationNeeded: true)
+        //Realm.Configuration.defaultConfiguration = config
+        
+        let config = Realm.Configuration(schemaVersion : 6) { migration, oldSchemaVersion in
+            //else if 쓰면 안됨, 각각 버전 조건문으로 다 대응해서 다 돌게 만듬 
+            //컬럼 단순 추가 삭제의 경우 별도 코드 필요 x
+            if oldSchemaVersion < 1 {
+                
+            }
+            if oldSchemaVersion < 2 {
+                
+            }
+            
+            if oldSchemaVersion < 3 {
+                migration.renameProperty(onType: Todo.className(), from: "importance", to: "favorite")
+            }
+            
+            if oldSchemaVersion < 4 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    
+                    guard let new = newObject else { return }
+                    guard let old = oldObject else { return }
+                    
+                   
+                    new["userDescription"] = "안녕하세요 \(old["title"]!)의 중요도는 \(old["favorite"]!)입니다"
+                }
+            }
+            
+            if oldSchemaVersion < 5 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    
+                    guard let new = newObject else { return }
+                    new["count"] = 100
+                
+                
+            }
+        }
+            
+            if oldSchemaVersion < 6 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    guard let new = newObject else { return }
+                    guard let old = oldObject else { return }
+                    
+                    //new optional, old optional
+                    new["favorite"] = old["favorite"]
+                    
+                    //new required, old optional
+                    new["favorite"] = old["favorite"] ?? 4.4 //nil 값일 때의 기본값 주기
+
+                }
+            }
+        
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
+        
+
+    }
+
+}
 extension AppDelegate : MessagingDelegate {
     
     //토큰 갱신 모니터링 : 토큰 정보가 언제 바뀔까?(옵션)(클릭했을때만 진행)
@@ -157,3 +221,4 @@ extension AppDelegate : MessagingDelegate {
 
     
 }
+

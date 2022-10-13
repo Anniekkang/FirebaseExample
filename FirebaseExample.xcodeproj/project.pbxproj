@@ -14,6 +14,10 @@
 		9E65C71728ED158D001B4A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E65C71628ED158D001B4A8E /* Assets.xcassets */; };
 		9E65C71A28ED158D001B4A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E65C71828ED158D001B4A8E /* LaunchScreen.storyboard */; };
 		9E65C72228ED1D74001B4A8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E65C72128ED1D74001B4A8E /* GoogleService-Info.plist */; };
+		9EC0033028F793BE0091F90C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC0032F28F793BE0091F90C /* Realm */; };
+		9EC0033228F793BE0091F90C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9EC0033128F793BE0091F90C /* RealmSwift */; };
+		9EC0033428F799FE0091F90C /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC0033328F799FE0091F90C /* Todo.swift */; };
+		9EC0033628F79BB20091F90C /* MigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC0033528F79BB20091F90C /* MigrationViewController.swift */; };
 		9ECE2EA628F4ED49002D83F2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9ECE2EA528F4ED49002D83F2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9ECE2EA828F4ED49002D83F2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9ECE2EA728F4ED49002D83F2 /* FirebaseCrashlytics */; };
 		9ECE2EAA28F4ED49002D83F2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9ECE2EA928F4ED49002D83F2 /* FirebaseMessaging */; };
@@ -29,6 +33,8 @@
 		9E65C71928ED158D001B4A8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E65C71B28ED158D001B4A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E65C72128ED1D74001B4A8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EC0033328F799FE0091F90C /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		9EC0033528F79BB20091F90C /* MigrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationViewController.swift; sourceTree = "<group>"; };
 		9ECE2EAB28F4F23B002D83F2 /* FirebaseExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirebaseExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +45,8 @@
 			files = (
 				9ECE2EAA28F4ED49002D83F2 /* FirebaseMessaging in Frameworks */,
 				9ECE2EA628F4ED49002D83F2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				9EC0033028F793BE0091F90C /* Realm in Frameworks */,
+				9EC0033228F793BE0091F90C /* RealmSwift in Frameworks */,
 				9ECE2EA828F4ED49002D83F2 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +75,8 @@
 			children = (
 				9ECE2EAB28F4F23B002D83F2 /* FirebaseExample.entitlements */,
 				9E65C72128ED1D74001B4A8E /* GoogleService-Info.plist */,
+				9EC0033328F799FE0091F90C /* Todo.swift */,
+				9EC0033528F79BB20091F90C /* MigrationViewController.swift */,
 				9E65C70D28ED158B001B4A8E /* AppDelegate.swift */,
 				9E65C70F28ED158B001B4A8E /* SceneDelegate.swift */,
 				9E65C71128ED158B001B4A8E /* ViewController.swift */,
@@ -99,6 +109,8 @@
 				9ECE2EA528F4ED49002D83F2 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				9ECE2EA728F4ED49002D83F2 /* FirebaseCrashlytics */,
 				9ECE2EA928F4ED49002D83F2 /* FirebaseMessaging */,
+				9EC0032F28F793BE0091F90C /* Realm */,
+				9EC0033128F793BE0091F90C /* RealmSwift */,
 			);
 			productName = FirebaseExample;
 			productReference = 9E65C70A28ED158B001B4A8E /* FirebaseExample.app */;
@@ -130,6 +142,7 @@
 			mainGroup = 9E65C70128ED158B001B4A8E;
 			packageReferences = (
 				9ECE2EA428F4ED49002D83F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9EC0032E28F793BE0091F90C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 9E65C70B28ED158B001B4A8E /* Products */;
 			projectDirPath = "";
@@ -183,7 +196,9 @@
 			files = (
 				9E65C71228ED158B001B4A8E /* ViewController.swift in Sources */,
 				9E65C70E28ED158B001B4A8E /* AppDelegate.swift in Sources */,
+				9EC0033628F79BB20091F90C /* MigrationViewController.swift in Sources */,
 				9E65C71028ED158B001B4A8E /* SceneDelegate.swift in Sources */,
+				9EC0033428F799FE0091F90C /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +420,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9EC0032E28F793BE0091F90C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.31.0;
+			};
+		};
 		9ECE2EA428F4ED49002D83F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -416,6 +439,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9EC0032F28F793BE0091F90C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EC0032E28F793BE0091F90C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		9EC0033128F793BE0091F90C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9EC0032E28F793BE0091F90C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		9ECE2EA528F4ED49002D83F2 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9ECE2EA428F4ED49002D83F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
