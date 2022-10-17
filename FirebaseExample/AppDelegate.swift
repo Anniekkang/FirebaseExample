@@ -21,7 +21,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIViewController.swizzleMethod() //타입메서드로 바로 호출
         
-        aboutRealmMigration()
+        
+        let config = Realm.Configuration(schemaVersion:3){ migration, oldSchemaVersion in
+            
+            if oldSchemaVersion < 1 { //DetailTodo, List 추가
+                
+                
+                
+            }
+            
+            if oldSchemaVersion < 2 {//EmbeddedObject 추가
+                
+            }
+            
+            if oldSchemaVersion < 3 {//DetailTodo에 deadline 추가
+                
+            }
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      //  aboutRealmMigration()
         
         FirebaseApp.configure()
         
@@ -169,7 +205,7 @@ extension AppDelegate {
                    
                     new["userDescription"] = "안녕하세요 \(old["title"]!)의 중요도는 \(old["favorite"]!)입니다"
                 }
-            }
+//            }
             
             if oldSchemaVersion < 5 {
                 migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
@@ -203,6 +239,10 @@ extension AppDelegate {
     }
 
 }
+    
+}
+
+
 extension AppDelegate : MessagingDelegate {
     
     //토큰 갱신 모니터링 : 토큰 정보가 언제 바뀔까?(옵션)(클릭했을때만 진행)
@@ -221,4 +261,5 @@ extension AppDelegate : MessagingDelegate {
 
     
 }
+
 
