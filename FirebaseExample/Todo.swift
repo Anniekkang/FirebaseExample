@@ -13,7 +13,6 @@ class Todo : Object {
     @Persisted var importance : Int
     
     
-    
     @Persisted(primaryKey: true) var objectId : ObjectId
     @Persisted var detail : List<DetailTodo>
     @Persisted var memo : Memo? //EmbeddedObject는 항상 Optional
@@ -45,10 +44,5 @@ class Memo : EmbeddedObject {
     
     @Persisted var content : String
     @Persisted var date : Date
-    
- 
-    
-    
-    
-    
+
 }
